@@ -117,7 +117,11 @@ function App() {
   }, [jwtToken, notificationsEnabled]); // Re-run if notification setting changes
 
   return (
-    <div className="flex h-screen bg-base-200 text-base-content font-sans">
+    // 'flex-col' for mobile, 'flex-row' for desktop (md:flex-row)
+    <div className="flex flex-col md:flex-row h-screen bg-base-200 text-base-content font-sans overflow-hidden">
+      
+      {/* SIDEBAR */}
+      {/* On mobile, this will handle its own visibility via the drawer logic inside Sidebar.jsx */}
       <Sidebar 
         isExpanded={isExpanded} 
         toggleExpanded={toggleExpanded}
@@ -126,7 +130,18 @@ function App() {
         setActiveTab={setActiveTab}
       />
 
-      <main className="flex-1 overflow-y-auto transition-all duration-300">
+      {/* MAIN CONTENT */}
+      {/* 'flex-1' fills remaining space. 'w-full' ensures it uses width on mobile */}
+      <main className="flex-1 w-full overflow-y-auto transition-all duration-300 relative">
+          
+          {/* Mobile Header / Hamburger Trigger (Optional if Sidebar handles it, but good for safety) */}
+          <div className="md:hidden p-4 flex items-center justify-between bg-base-100 shadow-sm mb-4">
+             <div className="font-bold text-lg text-orange-600">FireAlertNX</div>
+             <button className="btn btn-ghost btn-sm" onClick={toggleExpanded}>
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
+             </button>
+          </div>
+
           <div className="p-4 md:p-8">
             {activeTab === 'live' && (
                 <LiveMonitor 
@@ -144,10 +159,8 @@ function App() {
 
             {activeTab === 'settings' && (
                 <Settings 
-                    // Pass Theme Props
                     theme={theme} 
                     toggleTheme={toggleTheme}
-                    // Pass Notification Props (Lifted State)
                     notificationsEnabled={notificationsEnabled}
                     setNotificationsEnabled={setNotificationsEnabled}
                 />

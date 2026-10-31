@@ -149,7 +149,7 @@ const AirQualityWidget = ({ sensorData, gasValue, thresholds }) => {
 
         {/* Footer */}
         <div className="text-center mt-6 font-mono text-xs text-gray-500 uppercase tracking-widest">
-          PPM LIMIT: {limit}
+          
         </div>
       </div>
     </div>
