@@ -4,17 +4,17 @@ FireAlertNX is an automated fire and hazard monitoring system designed for early
 
 ✨ Features
 
-- Real-Time Detection: Live video stream analysis (computer vision/color-space or AI model) and sensor input processing for smoke and fire signatures.
-- Automated Dispatch & Alerts: Immediate multi-channel notification delivery (SMS, email, or webhook alerts) upon threshold breach.
+- Real-Time Detection: Live video stream analysis (computer vision/color-space or AI model) and sensor input processing for smoke and fire signatures in industrial zones.
+- Automated Dispatch & Alerts: Immediate Web/Browser notifictications delivery.
 - Monitoring & Status Display: Real-time visual dashboard indicating threat levels, timestamps, and camera feed telemetry.
 - Event Logging: Persistent log of triggered alerts, detection confidence scores, and system operational states.
 
 🛠️ Tech Stack
 
-- Core / Backend: Python
-- Computer Vision: OpenCV / NumPy (or custom deep learning framework)
-- Notification Services: Twilio (SMS), SMTP (Email), or Discord/Telegram Webhooks
-- Sensors / Hardware (if applicable): Arduino / Raspberry Pi integration via Serial or GPIO
+- Core / Backend: Python/jsx
+- Computer Vision: NumPy
+- Notification Services: Web/Browser notifictications
+- Sensors / Hardware (if applicable): Arduino / Raspberry Pi integration via Thingsboard Cloud
 
 🚀 Getting Started
 
